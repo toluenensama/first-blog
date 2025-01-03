@@ -10,6 +10,7 @@ from flask_bcrypt import Bcrypt
 from functools import wraps
 import os
 from dotenv import find_dotenv,load_dotenv
+from waitress import serve
 
 dotenv_path = find_dotenv()
 load_dotenv(dotenv_path)
@@ -244,5 +245,5 @@ def delete_post(post_id):
 
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    serve(app, host='0.0.0.0', port=5000)
